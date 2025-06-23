@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li:focus-visible {
+  outline: none;
+}
+li:hover {
+  cursor: pointer;
+}
+@layer base {
+  :root {
+    /*------Color variables------*/
+    --black_900: #000000;
+    --black_900_00: #00000000;
+    --black_900_19: #00000019;
+    --black_900_3a: #0000003a;
+    --black_900_99: #00000099;
+    --blue_gray_700: #2f6660;
+    --blue_gray_700_01: #336560;
+    --blue_gray_700_02: #3c6d5b;
+    --blue_gray_800: #1f514c;
+    --blue_gray_800_00: #1f514c00;
+    --blue_gray_800_01: #2e574d;
+    --blue_gray_800_99: #1f514c99;
+    --cyan_900: #035f5a;
+    --gray_100: #f0f5f2;
+    --gray_100_01: #f7f7f7;
+    --gray_100_02: #f5f5f5;
+    --gray_200: #eaeae2;
+    --gray_200_01: #e7e7e7;
+    --gray_300: #e1e6e5;
+    --gray_300_01: #e5e5e5;
+    --gray_300_02: #dcdcdc;
+    --gray_300_19: #dedede19;
+    --gray_300_4c: #dcdcdc4c;
+    --gray_300_66: #dcdcdc66;
+    --gray_400_19: #b5b5b519;
+    --gray_400_19_01: #c7c7c719;
+    --gray_50: #f8f8f8;
+    --gray_500: #989898;
+    --gray_500_19: #8f8f8f19;
+    --gray_500_19_01: #ababab19;
+    --gray_700: #636363;
+    --gray_800: #4f4f4f;
+    --gray_800_7f: #4f4f4f7f;
+    --gray_800_99: #4f4f4f99;
+    --gray_800_b2: #4f4f4fb2;
+    --gray_900: #131312;
+    --indigo_a100: #8399f2;
+    --light_green_300: #acd893;
+    --purple_a100: #d97ceb;
+    --white_a700: #fffffb;
+    --white_a700_01: #fffffc;
+    --white_a700_02: #ffffff;
+    --white_a700_99: #ffffff99;
+    --yellow_900: #ca8433;
+    --black_600: #656d76;
+    --gray_shadow: #00000029;
+
+    /*------Shadow variables------*/
+    --shadow-xs: 0 1px 3px 0 #b5b5b519;
+    --shadow-sm: 0 2px 5px 0 #dedede19;
+    --shadow-md: 0 5px 12px 0 #c7c7c719;
+    --shadow-lg: 0 4px 4px 0 #00000019;
+    --shadow-xl: 0 3px 6px 0 #ababab19;
+    --shadow-2xl: -1px 4px 10px 0 #8f8f8f19;
+    --shadow-3xl: 0 1.72px 4px 0 #dedede19;
+    --shadow-4xl: 0 2px 5px 0 #00000019;
+    --shadow-5xl: 0 0 13px 5px #00000029;
+
+    /*------Border radius variables------*/
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-2xl: 14px;
+    --radius-3xl: 16px;
+    --radius-4xl: 18px;
+    --radius-5xl: 20px;
+    --radius-6xl: 22px;
+    --radius-7xl: 24px;
+    --radius-8xl: 28px;
+    --radius-9xl: 30px;
+    --radius-10xl: 36px;
+
+    /*------Spacing variables------*/
+    --space-xs: 4px;
+    --space-sm: 6px;
+    --space-md: 8px;
+    --space-lg: 10px;
+    --space-xl: 12px;
+    --space-2xl: 14px;
+    --space-3xl: 16px;
+    --space-4xl: 17px;
+    --space-5xl: 20px;
+    --space-6xl: 24px;
+    --space-7xl: 28px;
+    --space-8xl: 30px;
+    --space-9xl: 32px;
+    --space-10xl: 36px;
+    --space-11xl: 74px;
+    --space-12xl: 96px;
+    --space-13xl: 100px;
+  }
+  [type="text"],
+  input:where(:not([type])),
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    appearance: none;
+    background-color: transparent;
+    border-color: unset;
+    border-width: 0;
+    border-radius: unset;
+    padding: unset;
+    font-size: unset;
+    line-height: unset;
+  }
+
+  /* Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms */
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="search"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    --tw-ring-color: transparent;
+    border-color: transparent;
+  }
+  [type="radio"]:focus,
+  [type="checkbox"]:focus {
+    --tw-ring-color: transparent;
+  }
+}
+@layer components {
+  /*-------------------------------------
+  Container CSS
+--------------------------------------*/
+  .container-xs {
+    @apply w-full mx-auto max-w-[1250px];
+  }
+}

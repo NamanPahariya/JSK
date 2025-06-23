@@ -1,0 +1,153 @@
+@keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee2{
+    animation: marquee 8s linear infinite;
+  }
+
+
+  @media (max-width: 1280px) {
+    .hero-heading {
+      font-size: 54px;
+    }
+    .hero-container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1600px) {
+    .hero-heading {
+      font-size: 48px;
+    }
+    .hero-container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+
+    .FromText{
+      position: relative;
+      right:65px !important
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-heading {
+      font-size: 36px;
+      width: 100%;
+    }
+    .hero-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .stats-card {
+      position: relative;
+      margin-top: 2rem;
+      width: 90%;
+      left: 5%;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .hero-heading {
+      font-size: 28px;
+    }
+    .hero-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .cta-buttons {
+      flex-direction: column;
+    }
+    .cta-button {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  /* @media (max-width: 480px) {
+    .hero-heading {
+      font-size: 24px;
+    }
+    .hero-subheading {
+      font-size: 14px;
+    }
+    .numberText{
+          font-size: 75% !important;
+    }
+
+    .stringText{
+      font-size: 220% !important;
+    }
+  }
+
+  @media (max-width: 350px){
+    .numberText{
+      font-size: 60% !important;
+}
+
+.stringText{
+  font-size: 200% !important;
+}
+  } */
+
+  /* @media (max-width: 3250px){
+    .numberText{
+      font-size: 60% !important;
+}
+
+.stringText{
+  font-size: 180% !important;
+}
+  } */
+
+
+  @media (min-width: 320px) and (max-width: 481px) {
+
+    .numberText{
+      font-size: 68% !important;
+      width: 43% !important;
+}
+
+
+
+.stringText{
+  font-size: 200% !important;
+}
+
+/* .statsCard{
+  position: relative !important;
+  top:165px !important
+} */
+
+
+
+  }
+
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+
+    /* .numberText{
+      font-size: 65% !important;
+      width: 33% !important;
+} */
+
+.FromText{
+  /* position: relative; */
+  top: 45px;
+}
+
+.stringText{
+  font-size: 280% !important;
+}
+  }
+
