@@ -30,7 +30,7 @@ export default function DetailedServices() {
                     <DevelopmentSection />
                     <ServicesDescription/>
                     <OurServices />
-                    <HowItWorks />
+                    <HowItWorks scrollToContactRef={contactRef}/>
                     <Projects />
                     {/* contact us section */}
                     <div ref={contactRef} className="w-full">

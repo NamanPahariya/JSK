@@ -461,7 +461,7 @@ export default function LandingPage() {
           <ServicesOverviewSection />
 
           {/* how it works section */}
-          <HowItWorksSection />
+          <HowItWorksSection scrollToContactRef={contactRef}/>
 
           {/* talent acquisition section */}
           <TalentAcquisitionSection />

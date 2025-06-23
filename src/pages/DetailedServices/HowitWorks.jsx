@@ -1,8 +1,10 @@
 import { Button, Heading, Img } from "../../components";
+import { useNavigate } from "react-router-dom";
 import LandingColumn from "../../components/LandingColumn";
 import React, { Suspense, useState, useEffect } from "react";
 
-export default function HowItWorksSection() {
+export default function HowItWorksSection({scrollToContactRef, ...props}) {
+  const navigate = useNavigate();
   const sliderData = [
     {
       image: "/images/frame_193.png",
@@ -16,7 +18,7 @@ export default function HowItWorksSection() {
       buttonText: "Learn more",
     },
     {
-     image: "/images/frame_194.png",
+      image: "/images/frame_194.png",
       heading:
         "Accelerate your growth with specialized IT talent and resources.",
       buttonText: "Contact us",
@@ -64,10 +66,27 @@ export default function HowItWorksSection() {
     goToSlide(nextIndex);
   };
 
+  const handleButtonClick = (text) => {
+    const normalized = text.trim().toLowerCase();
+    if (normalized === "get started") {
+      navigate("/services");
+    } else if (normalized === "learn more") {
+      navigate("/services");
+    } else if (normalized === "contact us") {
+      if (scrollToContactRef?.current) {
+      scrollToContactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+      // navigate("/contact");
+    } else {
+      console.warn("Unhandled button:", text);
+    }
+  };
+
   return (
-    <div className="bg-green-950 relative px-6 sm:px-8 md:px-12  text-white overflow-hidden">
-      <div className="absolute top-0 w-full flex justify-center items-center">
-        <div className="w-full max-w-[900px] px-4  sm:max-w-full">
+    <div className="bg-green-950 relative px-6 sm:px-8 md:px-12 text-white overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute top-0 w-full z-0 flex justify-center items-center pointer-events-none">
+        <div className="w-full max-w-[900px] px-4 sm:max-w-full">
           <Img
             src="/images/img_vector_dev.png"
             alt="Background"
@@ -75,9 +94,12 @@ export default function HowItWorksSection() {
           />
         </div>
       </div>
-      <div className="container-xs pt-20 pb-20 flex justify-center md:px-5">
+
+      {/* Content Section */}
+      <div className="container-xs pt-20 pb-20 flex justify-center md:px-5 relative z-10">
         <div className="w-full">
           <div className="relative flex flex-col gap-[100px] md:gap-[75px] sm:gap-[50px]">
+            {/* Top Text Content */}
             <div className="flex flex-col items-start">
               <Button
                 color="blue_gray_700_01"
@@ -107,6 +129,8 @@ export default function HowItWorksSection() {
                   need—faster, smarter, and fully customized.
                 </Heading>
               </div>
+
+              {/* Process Steps */}
               <div className="mt-[110px] flex gap-7 self-stretch md:flex-col">
                 <Suspense fallback={<div>Loading feed...</div>}>
                   {landingContent.map((content, index) => (
@@ -121,26 +145,26 @@ export default function HowItWorksSection() {
               </div>
             </div>
 
+            {/* Slider Section */}
             <div className="relative mr-2.5 md:mr-0">
               <div className="relative h-[540px] w-full overflow-hidden rounded-[16px] md:h-auto">
                 {sliderData.map((slide, index) => {
-                  // Determine slide state (active, leaving, hidden)
                   let slideState = "hidden";
                   if (index === currentSlide) slideState = "active";
                   else if (index === previousSlide) slideState = "leaving";
 
-                  // Create appropriate classes based on slide state
                   let slideClasses =
                     "absolute top-0 left-0 h-full w-full flex flex-col items-start gap-8 rounded-[16px] bg-cover bg-no-repeat py-[60px] pl-[60px] pr-14 transition-all md:h-auto md:p-5 ";
 
                   if (slideState === "active") {
                     slideClasses +=
-                      "opacity-100 z-20 translate-x-0 duration-500";
+                      "opacity-100 z-20 translate-x-0 duration-500 pointer-events-auto";
                   } else if (slideState === "leaving") {
                     slideClasses +=
-                      "opacity-0 z-10 -translate-x-full duration-500";
+                      "opacity-0 z-10 -translate-x-full duration-500 pointer-events-none";
                   } else {
-                    slideClasses += "opacity-0 z-0 translate-x-full duration-0";
+                    slideClasses +=
+                      "opacity-0 z-0 translate-x-full duration-0 pointer-events-none";
                   }
 
                   return (
@@ -160,6 +184,7 @@ export default function HowItWorksSection() {
                       <Button
                         color="white_A700"
                         size="3xl"
+                        onClick={() => handleButtonClick(slide.buttonText)}
                         className="mb-[238px] min-w-[208px] rounded-[24px] px-[34px] font-hankengrotesk font-semibold tracking-[-0.32px] text-blue_gray-800 sm:px-5"
                       >
                         {slide.buttonText}

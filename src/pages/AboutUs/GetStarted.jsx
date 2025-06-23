@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Heading, Text } from "../../components";
+import { useNavigate } from "react-router-dom";
 
-export default function GetStarted() {
+export default function GetStarted({scrollToContactRef}) {
+      const navigate = useNavigate();
+    
     const sliderData = [
         {
             image: "/images/frame_193.png",
@@ -42,6 +45,21 @@ export default function GetStarted() {
         goToSlide(nextIndex);
     };
 
+    const handleButtonClick = (text) => {
+    const normalized = text.trim().toLowerCase();
+    if (normalized === "get started") {
+      navigate("/services");
+    } else if (normalized === "learn more") {
+      navigate("/services");
+    } else if (normalized === "contact us") {
+      if (scrollToContactRef?.current) {
+      scrollToContactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+      // navigate("/contact");
+    } else {
+      console.warn("Unhandled button:", text);
+    }
+  };
     return (
         <div className="bg-green-950 w-full px-20 py-20 md:px-10 flex flex-col">
             {/* Slider Section */}
@@ -58,11 +76,11 @@ export default function GetStarted() {
                             "bg-cover bg-center rounded-[16px]";
 
                         if (slideState === "active") {
-                            slideClasses += " opacity-100 z-20 translate-x-0";
+                            slideClasses += " opacity-100 z-20 translate-x-0 pointer-events-auto";
                         } else if (slideState === "leaving") {
-                            slideClasses += " opacity-0 z-10 -translate-x-full";
+                            slideClasses += " opacity-0 z-10 -translate-x-full pointer-events-none";
                         } else {
-                            slideClasses += " opacity-0 z-0 translate-x-full";
+                            slideClasses += " opacity-0 z-0 translate-x-full pointer-events-none";
                         }
 
                         return (
@@ -83,6 +101,7 @@ export default function GetStarted() {
                                         color="white_A700"
                                         size="3xl"
                                         className="w-fit rounded-[24px] px-6 py-3 font-semibold text-blue_gray-800"
+                                        onClick={() => handleButtonClick(slide.buttonText)}
                                     >
                                         {slide.buttonText}
                                     </Button>

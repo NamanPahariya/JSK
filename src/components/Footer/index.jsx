@@ -26,7 +26,9 @@ export default function Footer({ scrollToContactRef, ...props }) {
             as="p"
             className="mt-[26px] !font-hankengrotesk text-[16px] font-medium leading-[180%] tracking-[-0.64px] !text-gray-800_b2"
           >
-            Address.....
+            9100 Independence Parkway 
+PLANO 
+75025 TX
           </Heading>
           <div className="mt-[74px] flex gap-4">
             <Button

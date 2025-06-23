@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LandingColumn from "../../components/LandingColumn";
 import React, { Suspense, useState, useEffect } from "react";
 
-export default function HowItWorksSection() {
+export default function HowItWorksSection({scrollToContactRef, ...props}) {
   const navigate = useNavigate();
   const sliderData = [
     {
@@ -69,11 +69,14 @@ export default function HowItWorksSection() {
   const handleButtonClick = (text) => {
     const normalized = text.trim().toLowerCase();
     if (normalized === "get started") {
-      navigate("/services", { replace: true });
+      navigate("/services");
     } else if (normalized === "learn more") {
-      navigate("/services", { replace: true });
+      navigate("/services");
     } else if (normalized === "contact us") {
-      navigate("/contact", { replace: true });
+      if (scrollToContactRef?.current) {
+      scrollToContactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+      // navigate("/contact");
     } else {
       console.warn("Unhandled button:", text);
     }

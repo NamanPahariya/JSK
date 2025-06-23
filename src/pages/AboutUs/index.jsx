@@ -48,7 +48,7 @@ export default function AboutPage() {
 
         <AboutSection />
         <OurStorySection />
-        <GetStarted />
+        <GetStarted scrollToContactRef={contactRef} />
         <TeamSection />
         <div ref={contactRef} className="w-full">
           <ContactUs />
